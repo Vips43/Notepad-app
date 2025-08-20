@@ -5,7 +5,7 @@
   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
   <link rel="stylesheet" href="styles/style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"/>
-  <title>Hello, World!</title>
+  <title>Notepad App</title>
 </head>
 <body>
   <div class="add-note-wrapper show">
@@ -20,7 +20,7 @@
         <label for="desc">Description</label>
         <textarea name="" cols="4" rows="6" id="desc"></textarea>
       </div>
-      <button class="addBtn">Add Note</button>
+      <button id="addBtn" class="addBtn">Add Note</button>
     </div>
   </div>
   <div class="wrapper-container">
@@ -28,13 +28,15 @@
       <div class="add-btn">+</div>
       <div>Add notes</div>
     </li>
+
+    <!-- all notes -->
     <li class="note-wrapper">
       <div class="content">
         <h3 class="title">Notes title</h3>
         <span class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, quae. Magni rem eos quis, sunt voluptate mollitia repellendus labore distinctio saepe corrupti cum similique asperiores facilis veniam voluptates repellat? Voluptatibus!</span>
       </div>
       <div class="footer">
-        <span>April 3, 2025</span>
+        <span class="date"></span>
         <div class="setting">
           <i class="fa-solid fa-ellipsis"></i>
           <ul class="menu">
@@ -44,54 +46,8 @@
         </div>       
       </div>
     </li>
-    <li class="note-wrapper">
-      <div class="content">
-        <h3 class="title">Notes title</h3>
-        <span class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, quae. Magni rem eos quis, sunt voluptate mollitia repellendus labore distinctio saepe corrupti cum similique asperiores facilis veniam voluptates repellat? Voluptatibus!</span>
-      </div>
-      <div class="footer">
-        <span>April 3, 2025</span>
-        <div class="setting">
-          <i class="fa-solid fa-ellipsis"></i>
-          <ul class="menu">
-            <li><i class="fa-solid fa-pencil"></i> Edit</li>
-            <li><i class="fa-solid fa-trash"></i> Delete</li>
-          </ul>
-        </div>       
-      </div>
-    </li>
-    <li class="note-wrapper">
-      <div class="content">
-        <h3 class="title">Notes title</h3>
-        <span class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, quae. Magni rem eos quis, sunt voluptate mollitia repellendus labore distinctio saepe corrupti cum similique asperiores facilis veniam voluptates repellat? Voluptatibus!</span>
-      </div>
-      <div class="footer">
-        <span>April 3, 2025</span>
-        <div class="setting">
-          <i class="fa-solid fa-ellipsis"></i>
-          <ul class="menu">
-            <li><i class="fa-solid fa-pencil"></i> Edit</li>
-            <li><i class="fa-solid fa-trash"></i> Delete</li>
-          </ul>
-        </div>       
-      </div>
-    </li>
-    <li class="note-wrapper">
-      <div class="content">
-        <h3 class="title">Notes title</h3>
-        <span class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, quae. Magni rem eos quis, sunt voluptate mollitia repellendus labore distinctio saepe corrupti cum similique asperiores facilis veniam voluptates repellat? Voluptatibus!</span>
-      </div>
-      <div class="footer">
-        <span>April 3, 2025</span>
-        <div class="setting">
-          <i class="fa-solid fa-ellipsis"></i>
-          <ul class="menu">
-            <li><i class="fa-solid fa-pencil"></i> Edit</li>
-            <li><i class="fa-solid fa-trash"></i> Delete</li>
-          </ul>
-        </div>       
-      </div>
-    </li>
+    <!-- all notes ends -->
+
   </div>
   <script src="script/script.js"></script>
 </body>
