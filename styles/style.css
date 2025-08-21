@@ -200,3 +200,13 @@ body{
   display: none;
 }
 /*note wrapper for adding notes ends*/
+
+
+@media (max-width: 600px){
+  .wrapper-container{
+    grid-template-columns: repeat(auto-fill,220px);
+  }
+  .setting .menu{
+    left: 130px;
+  }
+}
