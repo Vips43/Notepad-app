@@ -5,10 +5,12 @@ openBlankNote = document.querySelector('.add-btn'),
 addBtn = document.getElementById('addBtn')
 
 let input = document.getElementById('input'),
+title = document.querySelector('.title'),
 desc = document.getElementById('desc')
 
 const months = ['January', 'february', 'March',' April',' May', 'June', 'July', 'August', 'September', 'November', 'December']
 
+const notes = JSON.parse(localStorage.getItem("notes") || "[]");
 
 //open for adding task
 openBlankNote.onclick = ()=>{
@@ -32,11 +34,21 @@ function setDate() {
     let year = date.getFullYear()
     return `${month} ${day}, ${year}`
 }
-currDate.textContent = setDate()
 
 addBtn.onclick = ()=>{
-    input = input.value
-    desc = desc.value
-    console.log('input: '+input,'desc: '+desc);
-    
+    const inputValue = input.value,
+    descValue = desc.value;
+    let noteInfo = {
+        title:inputValue,
+        desc:descValue,
+        currDate:setDate()
+    }
+    notes.push(noteInfo)
+    console.log(notes);
+    localStorage.setItem('notes', JSON.stringify(notes))
 }
+
+
+
+
+
