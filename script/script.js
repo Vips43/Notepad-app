@@ -1,6 +1,7 @@
 const closeBtn = document.getElementById('close'),
 currDate = document.querySelector('.date'),
 addNoteWrapper = document.querySelector('.add-note-wrapper'),
+addNoteBox = document.querySelector('.add-note-box'),
 openBlankNote = document.querySelector('.add-btn'),
 addBtn = document.getElementById('addBtn')
 
@@ -46,8 +47,31 @@ addBtn.onclick = ()=>{
     notes.push(noteInfo)
     console.log(notes);
     localStorage.setItem('notes', JSON.stringify(notes))
+    addNote()
 }
 
+function addNote() {
+    notes.forEach(note => {
+        let liTag = `<li class="note-wrapper">
+                        <div class="content">
+                            <h3 class="title">${note.title}</h3>
+                            <span class="desc">${note.desc}</span>
+                        </div>
+                        <div class="footer">
+                            <span class="date">${note.currDate}</span>
+                            <div class="setting">
+                            <i class="fa-solid fa-ellipsis"></i>
+                            <ul class="menu">
+                               <li onclick=editNote()><i class="fa-solid fa-pencil"></i> Edit</li>
+                                <li><i class="fa-solid fa-trash"></i> Delete</li>
+                            </ul>
+                            </div>       
+                        </div>
+                    </li>`
+        addNoteBox.insertAdjacentHTML("afterend",liTag);
+    });
+}
+addNote()
 
 
 
