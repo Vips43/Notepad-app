@@ -21,17 +21,13 @@ openBlankNote.onclick = () => {
     addNoteWrapper.classList.remove('show')
     h4.textContent = "Add a new Note"
     addBtn.textContent = "Add Note"
-
+    if (window.innerWidth > 660) input.focus();
 }
 closeBtn.onclick = () => {
     isUpdate = false
     addNoteWrapper.classList.add('show')
-
     input.value = '';
     desc.value = '';
-
-    h4.textContent = "Add a new Note"
-    addBtn.textContent = "Add Note"
 }
 //open for adding task ends
 //setting date
@@ -50,20 +46,19 @@ addBtn.onclick = () => {
         alert('Please write something in notes to add ')
         return
     }
-    else if (title||desc) {
-        
+    else if (title || desc) {
+
         let noteInfo = {
             title: inputValue,
             desc: descValue,
             currDate: setDate()
         }
-        if(!isUpdate){
+        if (!isUpdate) {
             notes.push(noteInfo)
-        }else{
+        } else {
             isUpdate = false;
             notes[updateId] = noteInfo
         }
-
 
         localStorage.setItem('notes', JSON.stringify(notes));
         addNote();
@@ -72,7 +67,8 @@ addBtn.onclick = () => {
 }
 
 function addNote() {
-    document.querySelectorAll('.note-wrapper').forEach(note => note.remove())
+    if (!notes) return;
+    document.querySelectorAll('.note-wrapper').forEach(li => li.remove());
     notes.forEach((note, index) => {
         let liTag = `<li class="note-wrapper">
                         <div class="content">
@@ -93,7 +89,7 @@ function addNote() {
         addNoteBox.insertAdjacentHTML("afterend", liTag);
     });
 }
-addNote()
+addNote();
 
 function editNote(noteID, title, des) {
     isUpdate = true;
@@ -104,14 +100,20 @@ function editNote(noteID, title, des) {
     //updating text values
     input.value = title;
     desc.value = des;
-
+    if (addBtn.textContent == 'Update') {
+        addBtn.addEventListener('click', () => {
+            alert('updated');
+            closeBtn.click()
+        })
+    }
 }
+
 function deleteNote(noteID) {
     let confirmDel = confirm("Are you sure want to delete this note")
-    if(!confirmDel) return
+    if (!confirmDel) return;
     notes.splice(noteID, 1)
     localStorage.setItem('notes', JSON.stringify(notes));
-    addNote()
+    addNote();
 }
 
 
